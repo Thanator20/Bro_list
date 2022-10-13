@@ -5,7 +5,6 @@ const databaseConnection = mysql.createConnection({
     host: config.mysql.host,
     user: config.mysql.user,
     password: config.mysql.password,
-    flags: config.mysql.flags,
     database: config.mysql.database,
 });
 
