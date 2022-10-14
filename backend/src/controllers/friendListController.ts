@@ -50,4 +50,26 @@ export const friendListController = {
             next(err);
         }
     },
+    async updateFriendToFriendList(
+        req: Request,
+        res: Response,
+        next: NextFunction
+    ) {
+        const { name, email, comment, favFood, relationshipStatus } = req.body;
+        const { id } = req.query;
+        try {
+            const updateFriend =
+                await friendListService.updateFriendToRepository(
+                    name,
+                    email,
+                    comment,
+                    favFood,
+                    relationshipStatus,
+                    parseInt(id as string)
+                );
+            res.status(201).send();
+        } catch (err) {
+            next(err);
+        }
+    },
 };

@@ -47,4 +47,31 @@ export const friendListRepository = {
       `;
         const deleteFriendFromList = await db.query(deleteFriendQuery, [id]);
     },
+    async updateFriend(
+        name: string,
+        email: string,
+        comment: string,
+        favFood: number,
+        relationshipStatus: number,
+        id: number
+    ): Promise<void> {
+        const updateFriendQuery = `UPDATE
+                            userfriendlist 
+                          SET
+                            name = ? ,
+                            email = ?,
+                            comment = ?,
+                            favFood = ?,
+                            relationshipStatus = ?
+                          WHERE
+                            id = ?`;
+        const updateFriend = await db.query(updateFriendQuery, [
+            name,
+            email,
+            comment,
+            favFood.toString(),
+            relationshipStatus.toString(),
+            id.toString(),
+        ]);
+    },
 };

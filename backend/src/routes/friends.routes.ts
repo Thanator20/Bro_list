@@ -9,5 +9,9 @@ friendsRouter.delete(
     '/delete-friend',
     friendListController.deleteFriendFromFriendList
 );
+friendsRouter.put(
+    '/update-friend',
+    friendListController.updateFriendToFriendList
+);
 
 export default friendsRouter;

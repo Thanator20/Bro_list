@@ -27,4 +27,22 @@ export const friendListService = {
         const deleteFriendFromRepository =
             await friendListRepository.deleteFriend(id);
     },
+    async updateFriendToRepository(
+        name: string,
+        email: string,
+        comment: string,
+        favFood: number,
+        relationshipStatus: number,
+        id: number
+    ): Promise<void> {
+        const updateFriendToRepository =
+            await friendListRepository.updateFriend(
+                name,
+                email,
+                comment,
+                favFood,
+                relationshipStatus,
+                id
+            );
+    },
 };
