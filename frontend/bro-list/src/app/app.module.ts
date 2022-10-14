@@ -13,9 +13,16 @@ import {
 } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRippleModule } from '@angular/material/core';
+import { HeaderComponent } from './features/main/header/header.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
+import { FriendListComponent } from './features/main/friend-list/friend-list.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HeaderComponent, FriendListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,6 +35,11 @@ import { MatRippleModule } from '@angular/material/core';
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatSidenavModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
