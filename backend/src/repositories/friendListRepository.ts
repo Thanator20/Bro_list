@@ -33,12 +33,18 @@ export const friendListRepository = {
                                               ?, ?, ?, ?, ?
                                           )
       `;
-        const friendList = await db.query(friendListQuery, [
+        const addFriendToList = await db.query(friendListQuery, [
             name,
             email,
             comment,
             favFood.toString(),
             relationshipStatus.toString(),
         ]);
+    },
+    async deleteFriend(id: number): Promise<void> {
+        const deleteFriendQuery = `DELETE FROM userfriendlist WHERE id = ?
+
+      `;
+        const deleteFriendFromList = await db.query(deleteFriendQuery, [id]);
     },
 };

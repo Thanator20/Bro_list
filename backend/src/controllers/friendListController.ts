@@ -34,4 +34,20 @@ export const friendListController = {
             next(err);
         }
     },
+    async deleteFriendFromFriendList(
+        req: Request,
+        res: Response,
+        next: NextFunction
+    ) {
+        const { id } = req.query;
+        try {
+            const deleteFriend =
+                await friendListService.deleteFriendFromRepository(
+                    parseInt(id as string)
+                );
+            res.status(200).send();
+        } catch (err) {
+            next(err);
+        }
+    },
 };

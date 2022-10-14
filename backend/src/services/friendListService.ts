@@ -23,4 +23,8 @@ export const friendListService = {
             relationshipStatus
         );
     },
+    async deleteFriendFromRepository(id: number): Promise<void> {
+        const deleteFriendFromRepository =
+            await friendListRepository.deleteFriend(id);
+    },
 };
