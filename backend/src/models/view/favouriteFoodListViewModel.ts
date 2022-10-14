@@ -1,4 +1,4 @@
-class FavouriteFoodListViewModel {
+export class FavouriteFoodListViewModel {
     id: number;
     name: string;
 }
