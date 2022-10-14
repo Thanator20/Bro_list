@@ -72,8 +72,24 @@ export const friendListController = {
         res: Response,
         next: NextFunction
     ) {
-        const { name, email, comment, favFood, relationshipStatus } = req.body;
+        const { name, email, favFood, relationshipStatus } = req.body;
+        let { comment } = req.body;
         const { id } = req.query;
+        if (!name || !email || !favFood || !relationshipStatus) {
+            next(badRequestError('All required field must be filled!!'));
+            return;
+        }
+        if (!comment) {
+            comment = 'no comment';
+        }
+        if (name.split('').lenght < 4) {
+            next(badRequestError('Name must be at lest 4 charter long'));
+            return;
+        }
+        if (comment.split('').lenght > 30) {
+            next(badRequestError('Comment must be at maximum 30 charter long'));
+            return;
+        }
         try {
             const updateFriend =
                 await friendListService.updateFriendToRepository(
