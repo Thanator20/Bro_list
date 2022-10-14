@@ -3,9 +3,7 @@ import { friendListController } from '../controllers/friendListController';
 
 const friendsRouter = express.Router();
 
-friendsRouter.get(
-    '/friendList',
-    friendListController.getFriendListFromFriendListService
-);
+friendsRouter.get('', friendListController.getFriendListFromFriendListService);
+friendsRouter.post('/add-friend', friendListController.addFriendToFriendList);
 
 export default friendsRouter;

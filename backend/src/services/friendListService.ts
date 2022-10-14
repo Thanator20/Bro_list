@@ -8,4 +8,19 @@ export const friendListService = {
 
         return getFriendsFromRepository;
     },
+    async addFriendToRepository(
+        name: string,
+        email: string,
+        comment: string,
+        favFood: number,
+        relationshipStatus: number
+    ): Promise<void> {
+        const addFriendToRepository = await friendListRepository.addFriend(
+            name,
+            email,
+            comment,
+            favFood,
+            relationshipStatus
+        );
+    },
 };
