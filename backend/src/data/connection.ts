@@ -5,7 +5,6 @@ const databaseConnection = mysql.createConnection({
     host: config.mysql.host,
     user: config.mysql.user,
     password: config.mysql.password,
-    flags: config.mysql.flags,
     database: config.mysql.database,
 });
 
@@ -19,7 +18,7 @@ export const db = {
             console.log('Database Connection is OK');
         });
     },
-    query<T>(query: string, values: string[] = []): Promise<T> {
+    query<T>(query: string, values: string[] | number[] = []): Promise<T> {
         return new Promise<T>((resolve, reject) => {
             databaseConnection.query(query, values, (err, result) => {
                 if (err) {
